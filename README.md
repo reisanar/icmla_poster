@@ -2,7 +2,7 @@
 
 ICMLA 2019 poster creation :page_with_curl: for the work on _"Unsupervised Learning on the Health and Retirement Study using Geometric Data Analysis"_ with [Roberto Williams Batista](https://github.com/robertowilliams/)
 
-Perhaps consider the tools at <https://github.com/brentthorne/posterdown> (??)
+Designed using the tools from the `posterdown` package. See <https://github.com/brentthorne/posterdown> for more information.
 
 :bar_chart:  
 
