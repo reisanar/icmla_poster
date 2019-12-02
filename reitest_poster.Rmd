@@ -36,6 +36,11 @@ bibliography: packages.bib
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r, echo=FALSE}
+library(kableExtra)
+```
+
+
 # Introduction
 
 The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables.
@@ -116,7 +121,7 @@ MCA was performed on a combined dataset from respondents of the 2008 and 2010 wa
 
 You can reference tables like so: Table \@ref(tab:mytable). 
 
-\begin{table}
+\begin{table}[]
 \caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} 
 \centering
 \begin{tabular}{lrrr}
