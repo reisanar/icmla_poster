@@ -22,6 +22,7 @@ Google fonts api stuff
 
 <title>Unsupervised Learning on the Health and Retirement Study using Geometric Data Analysis</title>
 
+<script src="reitest_poster_v2_files/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -297,13 +298,112 @@ font-size: 20pt;
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables.</p>
+<table class="table table-striped" style="font-size: 35px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-1">Table 1: </span>One of the tables
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Axes
+</th>
+<th style="text-align:right;">
+1
+</th>
+<th style="text-align:right;">
+2
+</th>
+<th style="text-align:right;">
+3
+</th>
+<th style="text-align:right;">
+4
+</th>
+<th style="text-align:right;">
+5
+</th>
+<th style="text-align:right;">
+6
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Eigenvalue <span class="math inline">\(( \lambda_l )\)</span>
+</td>
+<td style="text-align:right;">
+0.244
+</td>
+<td style="text-align:right;">
+0.142
+</td>
+<td style="text-align:right;">
+0.086
+</td>
+<td style="text-align:right;">
+0.085
+</td>
+<td style="text-align:right;">
+0.070
+</td>
+<td style="text-align:right;">
+0.063
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Variance rate
+</td>
+<td style="text-align:right;">
+0.081
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+<td style="text-align:right;">
+0.029
+</td>
+<td style="text-align:right;">
+0.028
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Modified rate <span class="math inline">\(( \tau_l )\)</span>
+</td>
+<td style="text-align:right;">
+0.688
+</td>
+<td style="text-align:right;">
+0.180
+</td>
+<td style="text-align:right;">
+0.039
+</td>
+<td style="text-align:right;">
+0.038
+</td>
+<td style="text-align:right;">
+0.019
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="methods" class="section level1">
 <h1>Methods</h1>
 <p>The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data.</p>
 <p>MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a cloud of categories and a cloud of individuals (Fig. 1). The distance between individual points is a reflection of the dissimilarity between response patterns of individuals, and both resulting clouds are on the same distance scale (B. Le Roux/2010).</p>
-<p>The traditional data format for MCA is an Individuals <span class="math inline">\(\times\)</span> Questions rectangular table, where questions are categorical</p>
-<p>variables with a finite number of categories (also called levels), and for each question, each individual chooses one and only one response category. Categories may be qualitative (nominal or ordinal) or may result from the splitting of continuous variables into categories.</p>
 <p>MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.</p>
 <!-- \begin{figure}[!t]  -->
 <!-- \centering  -->
