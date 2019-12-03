@@ -24,24 +24,15 @@ title_textsize:	"65pt"
 #affiliation_textsize:	"50pt"
 #author_textsize: "50pt"
 # logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-<<<<<<< HEAD
 logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png
-=======
-logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png]
+# logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+bibliography: packages.bib
+---
 
-<!-- <style> -->
-<!-- main-img-left { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-center { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-right { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- </style> -->
 
->>>>>>> 00f010014ae3c6d7073bb33473014b3efbee043c
 # logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
   posterdown::posterdown_html:
@@ -51,36 +42,16 @@ bibliography: packages.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-# packages
-library(readxl)
-library(magrittr)
-library(knitr)
+```
+
+```{r, echo=FALSE}
 library(kableExtra)
 ```
+
 
 # Introduction
 
 The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables.
-
-```{r, out.width='110%', fig.align='center'}
-table3 <- readxl::read_excel("table3.xlsx")
-table3 %>% 
-  kable(caption = "One of the tables") %>% 
-  kable_styling(bootstrap_options = "striped", font_size = 35)
-```
-
-```{r}
-# table1 %>% 
-#   kable(caption = 'Participant characteristics at baseline and association of each characteristic with number of cigarettes smoked in the past 30 days at follow-up; N = 1312.', align = 'c') %>%
-#   row_spec(0, background = "#CCCCCC") %>%
-#   column_spec(2, width = "15%") %>%
-#   column_spec(3, width = "30%") %>%
-#   pack_rows("Gender", 1, 2) %>%
-#   pack_rows("Race/ethnicity", 3, 5) %>%
-#   pack_rows("Education (highest parental)", 6, 8) %>%
-#   pack_rows("E-cigarette use", 9, 11)
-```
-
  
 # Methods
 
@@ -88,8 +59,11 @@ The geometric data analysis method of Multiple Correspondence Analysis (MCA) all
 
 MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a cloud of categories and a cloud of individuals (Fig. 1). The distance between individual points is a reflection of the dissimilarity between response patterns of individuals, and both resulting clouds are on the same distance scale (B. Le Roux/2010).
 
-MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.
+The traditional data format for MCA is an Individuals $\times$ Questions rectangular table, where questions are categorical
 
+variables with a finite number of categories (also called levels), and for each question, each individual chooses one and only one response category. Categories may be qualitative (nominal or ordinal) or may result from the splitting of continuous variables into categories.
+
+MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.
 
 
 <!-- \begin{figure}[!t]  -->
@@ -155,8 +129,8 @@ MCA was performed on a combined dataset from respondents of the 2008 and 2010 wa
 
 You can reference tables like so: Table \@ref(tab:mytable). 
 
-\begin{table}
-\caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels}
+\begin{table}[]
+\caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} 
 \centering
 \begin{tabular}{lrrr}
   \hline

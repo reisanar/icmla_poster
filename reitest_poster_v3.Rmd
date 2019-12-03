@@ -24,24 +24,7 @@ title_textsize:	"65pt"
 #affiliation_textsize:	"50pt"
 #author_textsize: "50pt"
 # logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-<<<<<<< HEAD
 logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png
-=======
-logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png]
-
-<!-- <style> -->
-<!-- main-img-left { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-center { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-right { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- </style> -->
-
->>>>>>> 00f010014ae3c6d7073bb33473014b3efbee043c
 # logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
   posterdown::posterdown_html:
