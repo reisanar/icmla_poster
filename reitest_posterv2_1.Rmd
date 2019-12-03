@@ -24,19 +24,14 @@ title_textsize:	"65pt"
 #affiliation_textsize:	"50pt"
 #author_textsize: "50pt"
 # logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png]
+logoright_name: figs/FLPolyFullLogo_CMYK.jpg # Changed from .jpg to png
+# logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+bibliography: packages.bib
+---
 
-<!-- <style> -->
-<!-- main-img-left { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-center { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- main-img-right { -->
-<!--  width: 50%; -->
-<!-- } -->
-<!-- </style> -->
 
 # logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
@@ -48,6 +43,11 @@ bibliography: packages.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{r, echo=FALSE}
+library(kableExtra)
+```
+
 
 # Introduction
 
@@ -129,7 +129,7 @@ MCA was performed on a combined dataset from respondents of the 2008 and 2010 wa
 
 You can reference tables like so: Table \@ref(tab:mytable). 
 
-\begin{table}
+\begin{table}[]
 \caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} 
 \centering
 \begin{tabular}{lrrr}
