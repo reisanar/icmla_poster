@@ -301,7 +301,9 @@ font-size: 20pt;
 </div>
 <div id="methods" class="section level1">
 <h1>Methods</h1>
-<p>The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a cloud of categories and a cloud of individuals (Fig. 1). The distance between individual points is a reflection of the dissimilarity between response patterns of individuals, and both resulting clouds are on the same distance scale (B. Le Roux/2010). MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.</p>
+<p>The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a <em>cloud of categories</em> and a <em>cloud of individuals</em> (Figure <a href="#fig:mcaIdea">1</a>). The distance between individual points is a reflection of the <em>dissimilarity between response patterns</em> of individuals, and both resulting clouds are on the same distance scale <span class="citation">(Le Roux and Rouanet 2010)</span>.</p>
+<!-- MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. -->
+<p>The lower dimensional representation is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The solution can be obtained compactly and neatly using the generalized singular value decomposition (SVD) of the data matrix.</p>
 <!-- \begin{figure}[!t]  -->
 <!-- \centering  -->
 <!-- \includegraphics[width=3.5in]{figs/mcaIdeaNew.pdf} -->
@@ -314,14 +316,14 @@ font-size: 20pt;
 Figure 1: MCA idea
 </p>
 </div>
-<p>The squared distance between two respondents is calculated using the variables for which each had chosen different categories.</p>
+<p>The squared distance between two respondents is calculated using the variables for which each had chosen different categories:</p>
 <p><span class="math display">\[\begin{equation}
 \begin{aligned}[b]
 \label{eq:distInd}
 d^2(i, i^{\prime}) &amp;= \frac{1}{Q} \sum_{k\in K} \frac{(\delta_{ik} - \delta_{i^{\prime}k})^2}{f_k}  
 \end{aligned}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(\delta_{ik} = 1\)</span> if <span class="math inline">\(i\)</span> has chosen <span class="math inline">\(k\)</span> and <span class="math inline">\(0\)</span> otherwise. Notice that the smaller the frequencies of disagreement categories, the greater the distance between individuals. The set of all distances between individuals determines the cloud of individuals consisting of <span class="math inline">\(N\)</span> points in a space with dimensionality <span class="math inline">\(L\leq K - Q\)</span>  (it is assumed here that <span class="math inline">\(N &gt; L\)</span>). Additionally, if respondent <span class="math inline">\(i\)</span> chooses infrequent categories, then the point <span class="math inline">\(M^i\)</span> representing individual <span class="math inline">\(i\)</span> is far from the mean center of the cloud <span class="math inline">\(G\)</span>. The squared distance from point <span class="math inline">\(M^i\)</span> to <span class="math inline">\(G\)</span> is given by</p>
+\end{equation}\]</span>
+where <span class="math inline">\(\delta_{ik} = 1\)</span> if <span class="math inline">\(i\)</span> has chosen <span class="math inline">\(k\)</span> and <span class="math inline">\(0\)</span> otherwise, and <span class="math inline">\(f_k\)</span> is the relative frequency of respondents who chose category <span class="math inline">\(k\)</span>. Notice that the smaller the frequencies of disagreement categories, the greater the distance between individuals. The set of all distances between individuals determines the cloud of individuals consisting of <span class="math inline">\(N\)</span> points in a space with dimensionality <span class="math inline">\(L\leq K - Q\)</span>  (it is assumed here that <span class="math inline">\(N &gt; L\)</span>). Additionally, if respondent <span class="math inline">\(i\)</span> chooses infrequent categories, then the point <span class="math inline">\(M^i\)</span> representing individual <span class="math inline">\(i\)</span> is far from the mean center of the cloud <span class="math inline">\(G\)</span>. The squared distance from point <span class="math inline">\(M^i\)</span> to <span class="math inline">\(G\)</span> is given by</p>
 <p><span class="math display">\[\begin{equation}
 \begin{aligned}[b]
 \label{eq:distGM}
@@ -329,46 +331,50 @@ d^2(i, i^{\prime}) &amp;= \frac{1}{Q} \sum_{k\in K} \frac{(\delta_{ik} - \delta_
 \end{aligned}
 \end{equation}\]</span></p>
 <p>In the cloud of categories, a weighted cloud of <span class="math inline">\(K\)</span> points, category <span class="math inline">\(k\)</span> is denoted by point <span class="math inline">\(M^k\)</span> with weight <span class="math inline">\(n_k\)</span>: For each question, the sum of the weights of category points is <span class="math inline">\(N\)</span>, and the relative weight <span class="math inline">\(p_k\)</span> of point <span class="math inline">\(M^k\)</span> is simply <span class="math inline">\(p_k = f_k=Q\)</span>.</p>
-<p>Given two categories <span class="math inline">\(k\)</span> and <span class="math inline">\(k^\prime\)</span>, the squared distance between the points <span class="math inline">\(M^k\)</span> and <span class="math inline">\(M^{k^\prime}\)</span> is calculated as</p>
-<p><span class="math display">\[\begin{equation}
-\begin{aligned}[b]
-\label{eq:distCat}
-(M^k, M^{k^{\prime}})^2 &amp;= \frac{n_k + n_{k^\prime} - 2 n_{kk^\prime} }{n_k n_{k^\prime}/N}
-\end{aligned}
-\end{equation}\]</span></p>
-<p>with <span class="math inline">\(n_{kk^\prime}\)</span> denoting the number of respondents who have chosen both categories <span class="math inline">\(k\)</span> and <span class="math inline">\(k^\prime.\)</span></p>
-<p>The contribution of a category point <span class="math inline">\(M^k\)</span> to the overall variance is the ratio of the amount of the variance of the cloud due to category <span class="math inline">\(k\)</span>. The contribution of a question <span class="math inline">\(q\)</span> is the sum of the contributions of its categories. Contributions can be calculated as shown below:</p>
-<p><span class="math display">\[\begin{equation}
-\begin{aligned}[b]
-\label{eq:contribMk}
-\text{Ctr}_k &amp;= \frac{1-f_k}{K-Q}, \quad \text{Ctr}_q = \frac{K_q -1 }{K-Q}
-\end{aligned}
-\end{equation}\]</span></p>
+<!-- Given two categories $k$ and $k^\prime$, the squared distance between the points $M^k$ and $M^{k^\prime}$ is calculated as -->
+<!-- \begin{equation} -->
+<!-- \begin{aligned}[b] -->
+<!-- \label{eq:distCat} -->
+<!-- (M^k, M^{k^{\prime}})^2 &= \frac{n_k + n_{k^\prime} - 2 n_{kk^\prime} }{n_k n_{k^\prime}/N} -->
+<!-- \end{aligned} -->
+<!-- \end{equation} -->
+<!-- with $n_{kk^\prime}$ denoting the number of respondents who have chosen both categories $k$ and $k^\prime.$ -->
+<!-- The contribution of a category point $M^k$ to the overall variance is the ratio of the amount of the variance of the cloud due to category $k$. The contribution of a question $q$ is the sum of the contributions of its categories. Contributions can be calculated as shown below: -->
+<!-- \begin{equation} -->
+<!-- \begin{aligned}[b] -->
+<!-- \label{eq:contribMk} -->
+<!-- \text{Ctr}_k &= \frac{1-f_k}{K-Q}, \quad \text{Ctr}_q = \frac{K_q -1 }{K-Q} -->
+<!-- \end{aligned} -->
+<!-- \end{equation} -->
 </div>
 <div id="the-hrs-dataset" class="section level1">
 <h1>The HRS Dataset</h1>
 <p>Created in 1990 and launched in 1992 by the National Institute on Aging (NIA) and Social Security Administration, the Health and Retirement Study (HRS) surveys collect every two years of data from more than 22,000 Americans over 50 years old. It is the first longitudinal study of Americans approaching the economic and health aspects in the same survey and being the largest nationally representative multidisciplinary panel study of Americans aged 50 and older. The study was created and maintained by the Institute for Social Research (ISR) Survey Research Center (SRC) at the University of Michigan.</p>
+<p>NEED MORE ABOUT THE SECTIONS OF HRS USED IN THIS STUDY</p>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and Discussion</h1>
 <p>MCA was performed on a combined dataset from respondents of the 2008 and 2010 waves. Notice that the participants of the 2008 survey are different than those from the 2010 survey. The clouds patterns for every wave were examined to confirm that the overall geometric representations were similar regardless of the number of participants in each wave, or the year in which the survey responses were collected.</p>
-<table class="table table-striped" style="font-size: 35px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 25px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-2">Table 1: </span>COORDINATES OF THE FIRST 4 DIMENSIONS FOR THE TOP 12 CATEGORIES
+<span id="tab:unnamed-chunk-3">Table 1: </span>Coordinates of the first 4 dimensions for the top 12 categories (sorted by contribution and level of agreement)
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
-Category
+Variable
 </th>
 <th style="text-align:left;">
-nk
+Dim 1
 </th>
 <th style="text-align:left;">
-fk
+Dim 2
 </th>
 <th style="text-align:left;">
-Ctrk
+Dim 3
+</th>
+<th style="text-align:left;">
+Dim 4
 </th>
 </tr>
 </thead>
@@ -378,13 +384,16 @@ Ctrk
 sophisticated Not at all
 </td>
 <td style="text-align:left;">
-2159
+0.52
 </td>
 <td style="text-align:left;">
-0.22
+0.32
 </td>
 <td style="text-align:left;">
-0.0093
+0.03
+</td>
+<td style="text-align:left;">
+-0.14
 </td>
 </tr>
 <tr>
@@ -392,13 +401,16 @@ sophisticated Not at all
 imaginative A lot
 </td>
 <td style="text-align:left;">
-3109
+-0.75
 </td>
 <td style="text-align:left;">
-0.32
+0.23
 </td>
 <td style="text-align:left;">
-0.0081
+-0.20
+</td>
+<td style="text-align:left;">
+0.04
 </td>
 </tr>
 <tr>
@@ -406,13 +418,16 @@ imaginative A lot
 creative A lot
 </td>
 <td style="text-align:left;">
-2668
+-0.72
 </td>
 <td style="text-align:left;">
-0.27
+0.25
 </td>
 <td style="text-align:left;">
-0.0086
+-0.23
+</td>
+<td style="text-align:left;">
+0.03
 </td>
 </tr>
 <tr>
@@ -420,13 +435,16 @@ creative A lot
 caring A little
 </td>
 <td style="text-align:left;">
-345
+1.66
 </td>
 <td style="text-align:left;">
-0.04
+1.09
 </td>
 <td style="text-align:left;">
-0.011
+-1.90
+</td>
+<td style="text-align:left;">
+0.58
 </td>
 </tr>
 <tr>
@@ -434,13 +452,16 @@ caring A little
 talkactive A lot
 </td>
 <td style="text-align:left;">
-2823
+-0.53
 </td>
 <td style="text-align:left;">
-0.29
+0.22
 </td>
 <td style="text-align:left;">
-0.0085
+-0.03
+</td>
+<td style="text-align:left;">
+-0.35
 </td>
 </tr>
 <tr>
@@ -448,13 +469,16 @@ talkactive A lot
 friendly A little
 </td>
 <td style="text-align:left;">
-372
+1.64
 </td>
 <td style="text-align:left;">
-0.04
+1.23
 </td>
 <td style="text-align:left;">
-0.011
+-1.73
+</td>
+<td style="text-align:left;">
+0.19
 </td>
 </tr>
 <tr>
@@ -462,27 +486,16 @@ friendly A little
 careless Some
 </td>
 <td style="text-align:left;">
-993
+0.32
 </td>
 <td style="text-align:left;">
-0.1
+0.08
 </td>
 <td style="text-align:left;">
-0.011
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-responsible Some
+0.10
 </td>
 <td style="text-align:left;">
-1729
-</td>
-<td style="text-align:left;">
-0.18
-</td>
-<td style="text-align:left;">
-0.0098
+-0.68
 </td>
 </tr>
 <tr>
@@ -490,13 +503,33 @@ responsible Some
 responsible A little
 </td>
 <td style="text-align:left;">
-236
+1.71
 </td>
 <td style="text-align:left;">
-0.02
+1.31
 </td>
 <td style="text-align:left;">
-0.012
+-1.53
+</td>
+<td style="text-align:left;">
+-0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+responsible Some
+</td>
+<td style="text-align:left;">
+0.94
+</td>
+<td style="text-align:left;">
+-0.33
+</td>
+<td style="text-align:left;">
+0.07
+</td>
+<td style="text-align:left;">
+-0.06
 </td>
 </tr>
 <tr>
@@ -504,13 +537,16 @@ responsible A little
 nervous Not at all
 </td>
 <td style="text-align:left;">
-3101
+-0.31
 </td>
 <td style="text-align:left;">
-0.32
+0.22
 </td>
 <td style="text-align:left;">
-0.0081
+-0.19
+</td>
+<td style="text-align:left;">
+0.81
 </td>
 </tr>
 <tr>
@@ -518,13 +554,16 @@ nervous Not at all
 worry Not at all
 </td>
 <td style="text-align:left;">
-1625
+-0.34
 </td>
 <td style="text-align:left;">
-0.17
+0.39
 </td>
 <td style="text-align:left;">
-0.0099
+-0.27
+</td>
+<td style="text-align:left;">
+1.11
 </td>
 </tr>
 <tr>
@@ -532,22 +571,23 @@ worry Not at all
 moody Some
 </td>
 <td style="text-align:left;">
-1470
+0.27
 </td>
 <td style="text-align:left;">
-0.15
+0.02
 </td>
 <td style="text-align:left;">
-0.01
+0.07
+</td>
+<td style="text-align:left;">
+-0.70
 </td>
 </tr>
 </tbody>
 </table>
-<p><br />
-</p>
-<table class="table table-striped" style="font-size: 35px; margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="font-size: 25px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-3">Table 2: </span>VARIANCES OF AXES, VARIANCE AND MODIFIED RATES
+<span id="tab:unnamed-chunk-4">Table 2: </span>Variances of Axes, Varianceand Modified Rates
 </caption>
 <thead>
 <tr>
@@ -600,30 +640,7 @@ Eigenvalue <span class="math inline">\(( \lambda_l )\)</span>
 </tr>
 <tr>
 <td style="text-align:left;">
-Variance rate
-</td>
-<td style="text-align:right;">
-0.081
-</td>
-<td style="text-align:right;">
-0.047
-</td>
-<td style="text-align:right;">
-0.029
-</td>
-<td style="text-align:right;">
-0.028
-</td>
-<td style="text-align:right;">
-0.023
-</td>
-<td style="text-align:right;">
-0.021
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Modified rate <span class="math inline">\(( \tau_l )\)</span>
+Modified variance rate <span class="math inline">\(( \tau_l )\)</span>
 </td>
 <td style="text-align:right;">
 0.688
@@ -646,6 +663,7 @@ Modified rate <span class="math inline">\(( \tau_l )\)</span>
 </tr>
 </tbody>
 </table>
+<p>In this work, the R packages <code>dplyr</code> <span class="citation">(Wickham et al. 2018)</span> was used for data wrangling, and the <code>haven</code> package <span class="citation">(Wickham and Miller 2018)</span> for importing data. The MCA algorithm used in this study corresponds to the implementation of the algorithm available in the <code>FactoMineR</code> package <span class="citation">(Lê et al. 2008)</span>, that includes a collection of methods for multivariate data analysis.</p>
 <!-- You can reference tables like so: Table \@ref(tab:mytable).  -->
 <!-- \begin{table} -->
 <!-- \caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} -->
@@ -705,8 +723,6 @@ Figure 3: Regions
 <h1>Conclusions</h1>
 <p>The use of unsupervised techniques presented in this work represents an opportunity to extract valuable insights from longitudinal datasets like the one made available by the US Health and Retirement Study. MCA allows for new interpretations and discovery of patterns that take advantage of the qualitative nature of the data collected from survey respondents. The hierarchical clustering technique applied to the low dimensional representation of participants, provided by the MCA method, suggested a reasonable separation of the respondent profile as</p>
 <p>characterized by a personality scale. Results provided by this approach may be used to explore other areas that have yet to be captured using the items in the questionnaires, helping in the design of the survey and sampling procedure, and allowing for correlation studies with other physical and mental health indicators.</p>
-<p>Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.
-<code>FactoMineR</code>, <code>tidyverse</code></p>
 </div>
 <div id="acknowledgements" class="section level1">
 <h1>Acknowledgements</h1>
@@ -715,8 +731,17 @@ Figure 3: Regions
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
-<div id="ref-R-posterdown">
-<p>Thorne, Brent. 2019. <em>Posterdown: Generate Pdf Conference Posters Using R Markdown</em>. <a href="https://CRAN.R-project.org/package=posterdown">https://CRAN.R-project.org/package=posterdown</a>.</p>
+<div id="ref-le2010multiple">
+<p>Le Roux, Brigitte, and Henry Rouanet. 2010. <em>Multiple Correspondence Analysis</em>. Vol. 163. Sage.</p>
+</div>
+<div id="ref-le2008factominer">
+<p>Lê, Sébastien, Julie Josse, François Husson, and others. 2008. “FactoMineR: An R Package for Multivariate Analysis.” <em>Journal of Statistical Software</em> 25 (1). Los Angeles: 1–18.</p>
+</div>
+<div id="ref-Refdplyr">
+<p>Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-wickham2018haven">
+<p>Wickham, Hadley, and Evan Miller. 2018. “Haven: Import and Export SPSS, STATA and SAS Files.” <em>R Package Version</em> 1 (0).</p>
 </div>
 </div>
 </div>
