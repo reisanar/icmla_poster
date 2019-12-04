@@ -48,11 +48,12 @@ height: 44in;
 padding: 0cm;
 }
 .title_container {
-width: 36in;
-height: calc(44in * 0.15);
+width: 100%;
+height: 10%;
 overflow: hidden;
 background-color: #532d8e;
-border: 0 solid #B1B3B5;
+border: 0 solid #532d8e
+;
 }
 .logo_left {
 float: left;
@@ -89,6 +90,7 @@ font-family: Verdana;
 /* unvisited link */
 a:link {
 color: #AF95D3;
+text-decoration: none;
 }
 .mybreak {
   break-before: column;
@@ -96,16 +98,19 @@ color: #AF95D3;
 /* visited link */
 a:visited {
 color: #AF95D3;
+text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
 color: #AF95D3;
+text-decoration: none;
 }
 
 /* selected link */
 a:active {
 color: #AF95D3;
+text-decoration: none;
 }
 .poster_body {
 -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -137,9 +142,9 @@ border: 0;
 font-weight: normal;
 }
 .poster_body_wrap{
-width: calc(36in + 0 + 0);
-height: calc(44in * 0.83);
-padding-top: calc(44in * 0.005);
+width: 36in;
+height: calc(100% - 10%);
+padding-top: calc(44in * 0.01);
 padding-bottom: calc(44in * 0.01);
 background-color: #ffffff;
 }
@@ -162,7 +167,7 @@ border: 0;
 font-weight: normal;
 }
 img {
-margin-top: 2cm;
+margin-top: 0;
 margin-bottom: 0;
 }
 .section {
@@ -181,7 +186,7 @@ font-weight: normal;
 }
 .poster_body h2 {
 color: #000000;
-font-size: 40pt;
+font-size: 25pt;
 padding-left: 4mm;
 font-weight: normal;
 }
@@ -200,25 +205,30 @@ margin-bottom: 2cm;
 position: sticky;
 width: 100%;
 }
+div.sourceCode {
+font-size: 20pt;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+padding: 1em;
+border: 1mm solid;
+border-color: #008080;
+border-radius: 1em;
+}
 pre.sourceCode.r {
-background-color: #dddddd40;
-border-radius: 4mm;
-padding: 4mm;
-width: 75%;
+width: 100%;
 /* align-items: center; */
 margin: auto;
-padding-left: 2cm;
 }
 code.sourceCode.r{
 background-color: transparent;
-font-size: 20pt;
-border-radius: 2mm;
+color: #000000
 }
 .caption {
-font-size: 25pt;
+font-size: 20pt;
 }
 .table caption {
-font-size: 25pt;
+font-size: 20pt;
 padding-bottom: 3mm;
 
 }
@@ -256,6 +266,7 @@ margin-right: 4mm;
 margin-left: 4mm;
 margin-top: 6mm;
 margin-bottom: 10mm;
+color: #000000
 }
 .poster_body ol {
 margin-right: 4mm;
@@ -284,7 +295,7 @@ font-size: 20pt;
 <!-- Poster Title -->
 <div class= "poster_title">
 <h1 id="title">Unsupervised Learning on the Health and Retirement Study using Geometric Data Analysis</h1>
-<h3 id="author">Reinaldo Sanchez-Arias<sup>1</sup>, Roberto Williams Batista<sup>1</sup></h3><br>
+<h3 id="author">Reinaldo Sanchez-Arias<sup>1</sup>, Roberto Williams Batista<sup>1</sup></h3>
 <h5 id="affiliation"><sup>1</sup> Department of Data Science and Business Analytics, Florida Polytechnic University</h5>
 </div>
 <!-- Right Logo  -->
@@ -349,15 +360,14 @@ where <span class="math inline">\(\delta_{ik} = 1\)</span> if <span class="math 
 </div>
 <div id="the-hrs-dataset" class="section level1">
 <h1>The HRS Dataset</h1>
-<p>Created in 1990 and launched in 1992 by the National Institute on Aging (NIA) and Social Security Administration, the Health and Retirement Study (HRS) surveys collect every two years of data from more than 22,000 Americans over 50 years old. It is the first longitudinal study of Americans approaching the economic and health aspects in the same survey and being the largest nationally representative multidisciplinary panel study of Americans aged 50 and older. The study was created and maintained by the Institute for Social Research (ISR) Survey Research Center (SRC) at the University of Michigan.</p>
-<p>This study uses the following data products: HRS Core Cognition Section (D), HRS Left-Behind Questionnaires Section LB, and the RAND HRS Longitudinal File 2014 (V2). All the data used in this work was related to the survey waves of 2006, 2008, 2010 and 2012.</p>
+<p>Created in 1990 and launched in 1992 by the National Institute on Aging (NIA) and Social Security Administration, the Health and Retirement Study (HRS) surveys collect every two years of data from more than 22,000 Americans over 50 years old. It is the first longitudinal study of Americans approaching the economic and health aspects in the same survey and being the largest nationally representative multidisciplinary panel study of Americans aged 50 and older. The study was created and maintained by the Institute for Social Research (ISR) Survey Research Center (SRC) at the University of Michigan. This study uses the following data products: HRS Core Cognition Section (D), HRS Left-Behind Questionnaires Section LB, and the RAND HRS Longitudinal File 2014 (V2). All the data used in this work was related to the survey waves of 2006, 2008, 2010 and 2012.</p>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and Discussion</h1>
 <p>MCA was performed on a combined dataset from respondents of the 2008 and 2010 waves. Notice that the participants of the 2008 survey are different than those from the 2010 survey. The clouds patterns for every wave were examined to confirm that the overall geometric representations were similar regardless of the number of participants in each wave, or the year in which the survey responses were collected.</p>
 <table class="table table-striped" style="font-size: 25px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-3">Table 1: </span>Coordinates of the first 4 dimensions for the top 12 categories (sorted by contribution and level of agreement)
+<span id="tab:unnamed-chunk-2">Table 1: </span>Coordinates of the first 4 dimensions for the top 12 categories (sorted by contribution and level of agreement)
 </caption>
 <thead>
 <tr>
@@ -585,9 +595,10 @@ moody Some
 </tr>
 </tbody>
 </table>
+<p>In this work, the R packages <code>dplyr</code> <span class="citation">(Wickham et al. 2018)</span> was used for data wrangling, and the <code>haven</code> package <span class="citation">(Wickham and Miller 2018)</span> for importing data. The MCA algorithm used in this study corresponds to the implementation of the algorithm available in the <code>FactoMineR</code> package <span class="citation">(Lê et al. 2008)</span>, that includes a collection of methods for multivariate data analysis.</p>
 <table class="table table-striped" style="font-size: 25px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-4">Table 2: </span>Variances of Axes, Varianceand Modified Rates
+<span id="tab:unnamed-chunk-4">Table 2: </span>Variances of Axes and Modified Variance Rates
 </caption>
 <thead>
 <tr>
@@ -663,7 +674,6 @@ Modified variance rate <span class="math inline">\(( \tau_l )\)</span>
 </tr>
 </tbody>
 </table>
-<p>In this work, the R packages <code>dplyr</code> <span class="citation">(Wickham et al. 2018)</span> was used for data wrangling, and the <code>haven</code> package <span class="citation">(Wickham and Miller 2018)</span> for importing data. The MCA algorithm used in this study corresponds to the implementation of the algorithm available in the <code>FactoMineR</code> package <span class="citation">(Lê et al. 2008)</span>, that includes a collection of methods for multivariate data analysis.</p>
 <!-- You can reference tables like so: Table \@ref(tab:mytable).  -->
 <!-- \begin{table} -->
 <!-- \caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} -->
@@ -695,19 +705,232 @@ Modified variance rate <span class="math inline">\(( \tau_l )\)</span>
 <!-- \caption{Projection onto the first two principal dimensions} -->
 <!-- \label{fig:biplot}  -->
 <!-- \end{figure}  -->
+<table class="table table-striped" style="font-size: 25px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-5">Table 3: </span>Coordinates of the supplementary variables for the first 4 axes
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Category
+</th>
+<th style="text-align:left;">
+Dim 1
+</th>
+<th style="text-align:left;">
+Dim 2
+</th>
+<th style="text-align:left;">
+Dim 3
+</th>
+<th style="text-align:left;">
+Dim 4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+-0.11
+</td>
+<td style="text-align:left;">
+0.04
+</td>
+<td style="text-align:left;">
+0.06
+</td>
+<td style="text-align:left;">
+-0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+0.17
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+-0.09
+</td>
+<td style="text-align:left;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+non-veteran
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+0.03
+</td>
+<td style="text-align:left;">
+0.03
+</td>
+<td style="text-align:left;">
+-0.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+veteran
+</td>
+<td style="text-align:left;">
+0.17
+</td>
+<td style="text-align:left;">
+-0.10
+</td>
+<td style="text-align:left;">
+-0.09
+</td>
+<td style="text-align:left;">
+0.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hispanic
+</td>
+<td style="text-align:left;">
+0.18
+</td>
+<td style="text-align:left;">
+0.19
+</td>
+<td style="text-align:left;">
+0.20
+</td>
+<td style="text-align:left;">
+-0.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+non-hispanic
+</td>
+<td style="text-align:left;">
+-0.01
+</td>
+<td style="text-align:left;">
+-0.02
+</td>
+<td style="text-align:left;">
+-0.02
+</td>
+<td style="text-align:left;">
+0.02
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+black
+</td>
+<td style="text-align:left;">
+-0.06
+</td>
+<td style="text-align:left;">
+0.34
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+0.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+0.00
+</td>
+<td style="text-align:left;">
+0.18
+</td>
+<td style="text-align:left;">
+0.03
+</td>
+<td style="text-align:left;">
+-0.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+white
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+0.00
+</td>
+<td style="text-align:left;">
+-0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Depressed No
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+-0.05
+</td>
+<td style="text-align:left;">
+-0.01
+</td>
+<td style="text-align:left;">
+0.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Depressed Yes
+</td>
+<td style="text-align:left;">
+0.43
+</td>
+<td style="text-align:left;">
+0.45
+</td>
+<td style="text-align:left;">
+0.11
+</td>
+<td style="text-align:left;">
+-0.73
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="clustering" class="section level1">
 <h1>Clustering</h1>
 <p>Geometric data analysis methods have the potential to be used as a pre-processing step for clustering, given the representation in a lower dimensional space provided by the principal component technique of choice. In this work, a hierarchical clustering algorithm is performed using the coordinates of each respondent in the lower dimensional space generated by the MCA procedure.</p>
 <p>The findings of this hierarchical clustering confirm a natural grouping for the participants of the survey: the tendency of survey respondent to use the levels of agreement with the different questions that are part of the questionnaire, namely, “a lot”, “not at all”, “some” and “a little”. These levels of agreements are well separated in distinct regions within the plane of the first 2 principal dimensions.</p>
-<p>The four regions shown in (Figure <a href="#fig:regions12">3</a>), express consistency category levels of the variables related to the personality scale <span class="citation">(Lachman and Weaver 1997)</span> supplied by the HRS Core LB dataset.
-The individuals present in Region 1 have an open personality and actively seek for new experiences, while individuals in Region 3 and 4 do not exhibit this characteristic, holding all the low levels of this perception which is defined by a “Not at all” response in most cases. Similarly, the aspect of conscientiousness is a substantial characteristic for individuals in Region 1, and its weakest trace is found in individuals located in Regions 3 and 4.</p>
 <!-- \begin{figure}[h!]  -->
 <!-- \centering  -->
 <!-- \includegraphics[width=3.2in]{../figs/new_hclust.pdf} -->
 <!-- \caption{Hierarchical clustering using principal dimensions generated by multiple correspondence analysis.} -->
 <!-- \label{fig:hclust}  -->
 <!-- \end{figure}  -->
+<p>The four regions shown in (Figure <a href="#fig:regions12">3</a>), express consistency category levels of the variables related to the personality scale <span class="citation">(Lachman and Weaver 1997)</span> supplied by the HRS Core LB dataset.
+The individuals present in Region 1 have an open personality and actively seek for new experiences, while individuals in Region 3 and 4 do not exhibit this characteristic, holding all the low levels of this perception which is defined by a “Not at all” response in most cases. Similarly, the aspect of conscientiousness is a substantial characteristic for individuals in Region 1, and its weakest trace is found in individuals located in Regions 3 and 4.</p>
 <div class="figure" style="text-align: center"><span id="fig:hclust"></span>
 <img src="figs/screeplot.png" alt="Hierarchical Clustering" width="50%" /><img src="figs/new_hclust.png" alt="Hierarchical Clustering" width="50%" />
 <p class="caption">
@@ -724,13 +947,12 @@ Figure 3: Regions
 <div id="conclusions" class="section level1">
 <h1>Conclusions</h1>
 <p>The use of unsupervised techniques presented in this work represents an opportunity to extract valuable insights from longitudinal datasets like the one made available by the US Health and Retirement Study. MCA allows for new interpretations and discovery of patterns that take advantage of the qualitative nature of the data collected from survey respondents. The hierarchical clustering technique applied to the low dimensional representation of participants, provided by the MCA method, suggested a reasonable separation of the respondent profile as characterized by a personality scale. Results provided by this approach may be used to explore other areas that have yet to be captured using the items in the questionnaires, helping in the design of the survey and sampling procedure, and allowing for correlation studies with other physical and mental health indicators.</p>
-</div>
-<div id="acknowledgements" class="section level1">
-<h1>Acknowledgements</h1>
+<div id="acknowledgements" class="section level2">
+<h2>Acknowledgements</h2>
 <p>The HRS (Health and Retirement Study) is sponsored by the National Institute on Aging (grant number NIA U01AG009740) and is conducted by the University of Michigan. The HRS has been approved by the Institutional Review Board at the University of Michigan. The HRS obtains informed verbal consent from voluntary participants and follows strict procedures to protect study participants from disclosure (including maintaining a Federal Certificate of Confidentiality). The public data, made available to registered researchers and used in this study, is de-identified.</p>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
 <div id="refs" class="references">
 <div id="ref-lachman1997midlife">
 <p>Lachman, Margie E, and Suzanne L Weaver. 1997. “The Midlife Development Inventory (MIDI) Personality Scales: Scale Construction and Scoring.” <em>Waltham, MA: Brandeis University</em>, 1–9.</p>
@@ -746,6 +968,7 @@ Figure 3: Regions
 </div>
 <div id="ref-wickham2018haven">
 <p>Wickham, Hadley, and Evan Miller. 2018. “Haven: Import and Export SPSS, STATA and SAS Files.” <em>R Package Version</em> 1 (0).</p>
+</div>
 </div>
 </div>
 </div>
