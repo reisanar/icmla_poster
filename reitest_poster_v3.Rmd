@@ -45,12 +45,7 @@ library(kableExtra)
 
 The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables.
 
-```{r, out.width='110%', fig.align='center'}
-table3 <- readxl::read_excel("table3.xlsx")
-table3 %>% 
-  kable(caption = "One of the tables") %>% 
-  kable_styling(bootstrap_options = "striped", font_size = 35)
-```
+
 
 ```{r}
 # table1 %>% 
@@ -67,11 +62,7 @@ table3 %>%
  
 # Methods
 
-The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data.
-
-MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a cloud of categories and a cloud of individuals (Fig. 1). The distance between individual points is a reflection of the dissimilarity between response patterns of individuals, and both resulting clouds are on the same distance scale (B. Le Roux/2010).
-
-MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.
+The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a cloud of categories and a cloud of individuals (Fig. 1). The distance between individual points is a reflection of the dissimilarity between response patterns of individuals, and both resulting clouds are on the same distance scale (B. Le Roux/2010). MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. A lower dimensional solution is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The lowdimensional subspace that fits the points as closely as possible can be obtained compactly and neatly using the generalized singular-value decomposition (SVD) of the data matrix.
 
 
 
@@ -136,33 +127,50 @@ Created in 1990 and launched in 1992 by the National Institute on Aging (NIA) an
 
 MCA was performed on a combined dataset from respondents of the 2008 and 2010 waves. Notice that the participants of the 2008 survey are different than those from the 2010 survey. The clouds patterns for every wave were examined to confirm that the overall geometric representations were similar regardless of the number of participants in each wave, or the year in which the survey responses were collected.
 
-You can reference tables like so: Table \@ref(tab:mytable). 
 
-\begin{table}
-\caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels}
-\centering
-\begin{tabular}{lrrr}
-  \hline
-  Category & nk & fk & ctrk \\ 
-  \hline
-  sophisticated\_Not at all & 2159 & 0.22 & 0.0093 \\ 
-  imaginative\_A lot & 3109 & 0.32 & 0.0081 \\ 
-  creative\_A lot & 2668 & 0.27 & 0.0086 \\ 
-  caring\_A little & 345 & 0.04 & 0.011 \\ 
-  talkactive\_A lot & 2823 & 0.29 & 0.0085 \\ 
-  friendly\_A little & 372 & 0.04 & 0.011 \\ 
-  careless\_Some & 993 & 0.10 & 0.011 \\ 
-  responsible\_Some & 1729 & 0.18 & 0.0098 \\ 
-  responsible\_A little & 236 & 0.02 & 0.012 \\ 
-  nervous\_Not at all & 3101 & 0.32 & 0.0081 \\ 
-  worry\_Not at all & 1625 & 0.17 & 0.0099 \\ 
-  moody\_Some & 1470 & 0.15 & 0.01 \\ 
-   \hline
-\end{tabular}
-\label{tab:fknkTop12}
-\end{table}
+```{r, out.width='110%', fig.align='center'}
+table2 <- readxl::read_excel("table2.xlsx", col_types = c("text", "text","text","text"))
+table2 %>% 
+  kable(caption = "COORDINATES OF THE FIRST 4 DIMENSIONS FOR THE TOP 12 CATEGORIES") %>% 
+  kable_styling(bootstrap_options = "striped", font_size = 35)
+```
 
-`NEED TO ADD TABLES TO POSTER`
+\
+
+```{r, out.width='110%', fig.align='center'}
+table3 <- readxl::read_excel("table3.xlsx")
+table3 %>% 
+  kable(caption = "VARIANCES OF AXES, VARIANCE AND MODIFIED RATES") %>% 
+  kable_styling(bootstrap_options = "striped", font_size = 35)
+```
+
+<!-- You can reference tables like so: Table \@ref(tab:mytable).  -->
+
+<!-- \begin{table} -->
+<!-- \caption{Response frequencies (absolute $n_k$ and relative $f_k$), and contributions ($\text{Ctr}_k$) of  top categories by $\text{Ctr}_k$ and levels} -->
+<!-- \centering -->
+<!-- \begin{tabular}{lrrr} -->
+<!--   \hline -->
+<!--   Category & nk & fk & ctrk \\  -->
+<!--   \hline -->
+<!--   sophisticated\_Not at all & 2159 & 0.22 & 0.0093 \\  -->
+<!--   imaginative\_A lot & 3109 & 0.32 & 0.0081 \\  -->
+<!--   creative\_A lot & 2668 & 0.27 & 0.0086 \\  -->
+<!--   caring\_A little & 345 & 0.04 & 0.011 \\  -->
+<!--   talkactive\_A lot & 2823 & 0.29 & 0.0085 \\  -->
+<!--   friendly\_A little & 372 & 0.04 & 0.011 \\  -->
+<!--   careless\_Some & 993 & 0.10 & 0.011 \\  -->
+<!--   responsible\_Some & 1729 & 0.18 & 0.0098 \\  -->
+<!--   responsible\_A little & 236 & 0.02 & 0.012 \\  -->
+<!--   nervous\_Not at all & 3101 & 0.32 & 0.0081 \\  -->
+<!--   worry\_Not at all & 1625 & 0.17 & 0.0099 \\  -->
+<!--   moody\_Some & 1470 & 0.15 & 0.01 \\  -->
+<!--    \hline -->
+<!-- \end{tabular} -->
+<!-- \label{tab:fknkTop12} -->
+<!-- \end{table} -->
+
+<!-- `NEED TO ADD TABLES TO POSTER` -->
 
 <!-- \begin{figure}[h!]  -->
 <!-- \centering  -->
