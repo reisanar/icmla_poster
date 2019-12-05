@@ -196,19 +196,15 @@ MCA was performed on a combined dataset from respondents of the 2008 and 2010 wa
 <!-- The dimensions of the final dataset considered in this analysis are $9732 \times 34$, where each row of the tabular data set represents one of the survey respondents and each column is a question included in the questionnaire. -->
 
 ```{r, out.width='110%', fig.align='center'}
-table2 <- readxl::read_excel("table2_2.xlsx", col_types = c("text", "text","text","text", "text"))
+table2 <- readxl::read_excel("table2_3.xlsx", col_types = c("text", "text","text","text", "text"))
 table2 %>%
   kable(caption = "Coordinates of the first 4 dimensions for the top 12 categories (sorted by contribution and level of agreement)", align = "c") %>%
   kable_styling(full_width = T, row_label_position = "c") %>% 
   kable_styling(bootstrap_options = c("striped"), font_size = 25) %>% 
-  
-  # row_spec(c(1, 10, 11), background = "#AF95D3") %>% # some
-  # row_spec(c(2,3,5), background = "#86C8BC") %>% # little
-  # row_spec(c(4,6,8), background = "#69B3E7")  # not at all
 
-  row_spec(c(1, 10, 11), background = "#70c0ff") %>% # some
-  row_spec(c(2,3,5), background = "#dd4e49") %>% # little
-  row_spec(c(4,6,8), background = "#d1d1d1")  # not at all
+  row_spec(c(7,8,9), background = "#f4f4f4") %>% # some
+  row_spec(c(4,5,6),     background = "#e2e2e2") %>% # little
+  row_spec(c(1,2,3),     background = "#cecece")  # a lot
 
 ```
 
