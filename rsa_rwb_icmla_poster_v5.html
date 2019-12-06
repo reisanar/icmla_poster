@@ -22,7 +22,7 @@ Google fonts api stuff
 
 <title>Unsupervised Learning on the Health and Retirement Study Using Geometric Data Analysis</title>
 
-<script src="reitest_poster_v4_1_files/kePrint-0.0.1/kePrint.js"></script>
+<script src="rsa_rwb_icmla_poster_v5_files/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -357,6 +357,7 @@ background-color: #ffffff;
 </div>
 <div id="methods" class="section level1">
 <h1>Methods</h1>
+<!-- The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a _cloud of categories_ and a _cloud of individuals_ (Figure \@ref(fig:mcaIdea)). The distance between individual points is a reflection of the _dissimilarity between response patterns_ of individuals, and both resulting clouds are on the same distance scale. -->
 <p>The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a <em>cloud of categories</em> and a <em>cloud of individuals</em> (Figure <a href="#fig:mcaIdea">1</a>). The distance between individual points is a reflection of the <em>dissimilarity between response patterns</em> of individuals, and both resulting clouds are on the same distance scale <span class="citation">(Le Roux and Rouanet 2010)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:mcaIdea"></span>
 <img src="figs/MCAplot.png" alt="MCA idea: representation of participants and responses to survey" width="80%" />
@@ -379,8 +380,8 @@ Figure 1: MCA idea: representation of participants and responses to survey
 d^2(i, i^{\prime}) &amp;= \frac{1}{Q} \sum_{k\in K} \frac{(\delta_{ik} - \delta_{i^{\prime}k})^2}{f_k}  
 \end{aligned}
 \end{equation}\]</span>
-where <span class="math inline">\(\delta_{ik} = 1\)</span> if <span class="math inline">\(i\)</span> has chosen <span class="math inline">\(k\)</span> and <span class="math inline">\(0\)</span> otherwise, and <span class="math inline">\(f_k\)</span> is the relative frequency of respondents who chose category <span class="math inline">\(k\)</span>. Notice that the smaller the frequencies of disagreement categories, the greater the distance between individuals. The set of all distances between individuals determines the cloud of individuals consisting of <span class="math inline">\(N\)</span> points in a space with dimensionality <span class="math inline">\(L\leq K - Q\)</span>  (assumed here that <span class="math inline">\(N &gt; L\)</span>). Additionally, if respondent <span class="math inline">\(i\)</span> chooses infrequent categories, then the point <span class="math inline">\(M^i\)</span> representing individual <span class="math inline">\(i\)</span> is far from the mean center of the cloud <span class="math inline">\(G\)</span>. In the cloud of categories, a weighted cloud of <span class="math inline">\(K\)</span> points (where <span class="math inline">\(K\)</span> denotes the overall set of categories), category <span class="math inline">\(k\)</span> is denoted by point <span class="math inline">\(M^k\)</span> with weight <span class="math inline">\(n_k.\)</span></p>
-<!-- For each question, the sum of the weights of category points is $N$, and the relative weight $p_k$ of point $M^k$ is simply $p_k = f_k=Q$. -->
+where <span class="math inline">\(\delta_{ik} = 1\)</span> if <span class="math inline">\(i\)</span> has chosen <span class="math inline">\(k\)</span> and <span class="math inline">\(0\)</span> otherwise, and <span class="math inline">\(f_k\)</span> is the relative frequency of respondents who chose category <span class="math inline">\(k\)</span>. Notice that the smaller the frequencies of disagreement categories, the greater the distance between individuals. The set of all distances between individuals determines the cloud of individuals consisting of <span class="math inline">\(N\)</span> points in a space with dimensionality <span class="math inline">\(L\leq K - Q\)</span>  (assumed here that <span class="math inline">\(N &gt; L\)</span>). Additionally, if respondent <span class="math inline">\(i\)</span> chooses infrequent categories, then the point <span class="math inline">\(M^i\)</span> representing individual <span class="math inline">\(i\)</span> is far from the mean center of the cloud <span class="math inline">\(G\)</span>. In the cloud of categories, a weighted cloud of <span class="math inline">\(K\)</span> points (where <span class="math inline">\(K\)</span> denotes the overall set of categories), category <span class="math inline">\(k\)</span> is denoted by point <span class="math inline">\(M^k\)</span> with weight <span class="math inline">\(n_k.\)</span>
+<!-- For each question, the sum of the weights of category points is $N$, and the relative weight $p_k$ of point $M^k$ is simply $p_k = f_k=Q$. --></p>
 <!-- The squared distance from point $M^i$ to $G$ is given by  -->
 <!-- \begin{equation} -->
 <!-- \begin{aligned}[b] -->
@@ -981,21 +982,26 @@ Figure 3: Regions as identified by clustering technique
 <h3><em><strong>Acknowledgements</strong></em></h3>
 <style>
 div.a {
-  font-size: 25px;
+  font-size: 18pt;
 }
 </style>
 <div class="a">
 The HRS is sponsored by the National Institute on Aging (grant number NIA U01AG009740) and is conducted by the University of Michigan. The HRS has been approved by the Institutional Review Board at the University of Michigan. The HRS obtains informed verbal consent from voluntary participants and follows strict procedures to protect study participants from disclosure (including maintaining a Federal Certificate of Confidentiality). The public data, made available to registered researchers and used in this study, is de-identified.
 </div>
 </div>
-<div id="references" class="section level2 unnumbered">
+<div id="references" class="section level2">
 <h2><em><strong>References</strong></em></h2>
+<style>
+.references p {
+    font-size: 18pt;
+}
+</style>
 <div id="refs" class="references">
 <div id="ref-greenacre2006multiple">
 <p>Greenacre, Michael, and Jorg Blasius. 2006. <em>Multiple Correspondence Analysis and Related Methods</em>. Chapman; Hall/CRC.</p>
 </div>
 <div id="ref-lachman1997midlife">
-<p>Lachman, Margie E, and Suzanne L Weaver. 1997. “The Midlife Development Inventory (MIDI) Personality Scales: Scale Construction and Scoring.” <em>Waltham, MA: Brandeis University</em>, 1–9.</p>
+<p>Lachman, Margie E, and Suzanne L Weaver. 1997. “The Midlife Development Inventory (MIDI) Personality Scales: Scale Construction and Scoring.” <em>Brandeis University</em>, 1–9.</p>
 </div>
 <div id="ref-le2010multiple">
 <p>Le Roux, Brigitte, and Henry Rouanet. 2010. <em>Multiple Correspondence Analysis</em>. Vol. 163. Sage.</p>

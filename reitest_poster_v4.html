@@ -48,11 +48,12 @@ height: 44in;
 padding: 0cm;
 }
 .title_container {
-width: 36in;
-height: calc(44in * 0.15);
+width: 100%;
+height: 9%;
 overflow: hidden;
 background-color: #532d8e;
-border: 0 solid #B1B3B5;
+border: 0 solid #532d8e
+;
 }
 .logo_left {
 float: left;
@@ -89,6 +90,7 @@ font-family: Verdana;
 /* unvisited link */
 a:link {
 color: #AF95D3;
+text-decoration: none;
 }
 .mybreak {
   break-before: column;
@@ -96,16 +98,19 @@ color: #AF95D3;
 /* visited link */
 a:visited {
 color: #AF95D3;
+text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
 color: #AF95D3;
+text-decoration: none;
 }
 
 /* selected link */
 a:active {
 color: #AF95D3;
+text-decoration: none;
 }
 .poster_body {
 -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -137,9 +142,9 @@ border: 0;
 font-weight: normal;
 }
 .poster_body_wrap{
-width: calc(36in + 0 + 0);
-height: calc(44in * 0.83);
-padding-top: calc(44in * 0.005);
+width: 36in;
+height: calc(100% - 9%);
+padding-top: calc(44in * 0.01);
 padding-bottom: calc(44in * 0.01);
 background-color: #ffffff;
 }
@@ -162,7 +167,7 @@ border: 0;
 font-weight: normal;
 }
 img {
-margin-top: 2cm;
+margin-top: 0;
 margin-bottom: 0;
 }
 .section {
@@ -200,25 +205,30 @@ margin-bottom: 2cm;
 position: sticky;
 width: 100%;
 }
+div.sourceCode {
+font-size: 20pt;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+padding: 1em;
+border: 1mm solid;
+border-color: #008080;
+border-radius: 1em;
+}
 pre.sourceCode.r {
-background-color: #dddddd40;
-border-radius: 4mm;
-padding: 4mm;
-width: 75%;
+width: 100%;
 /* align-items: center; */
 margin: auto;
-padding-left: 2cm;
 }
 code.sourceCode.r{
 background-color: transparent;
-font-size: 20pt;
-border-radius: 2mm;
+color: #000000
 }
 .caption {
-font-size: 25pt;
+font-size: 20pt;
 }
 .table caption {
-font-size: 25pt;
+font-size: 20pt;
 padding-bottom: 3mm;
 
 }
@@ -256,6 +266,7 @@ margin-right: 4mm;
 margin-left: 4mm;
 margin-top: 6mm;
 margin-bottom: 10mm;
+color: #000000
 }
 .poster_body ol {
 margin-right: 4mm;
@@ -284,7 +295,7 @@ font-size: 20pt;
 <!-- Poster Title -->
 <div class= "poster_title">
 <h1 id="title">Unsupervised Learning on the Health and Retirement Study Using Geometric Data Analysis</h1>
-<h3 id="author">Reinaldo Sanchez-Arias<sup>1</sup>, Roberto Williams Batista<sup>1</sup></h3><br>
+<h3 id="author">Reinaldo Sanchez-Arias<sup>1</sup>, Roberto Williams Batista<sup>1</sup></h3>
 <h5 id="affiliation"><sup>1</sup> Department of Data Science and Business Analytics, Florida Polytechnic University</h5>
 </div>
 <!-- Right Logo  -->
@@ -347,7 +358,7 @@ background-color: #ffffff;
 <h1>Methods</h1>
 <p>The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a <em>cloud of categories</em> and a <em>cloud of individuals</em> (Figure <a href="#fig:mcaIdea">1</a>). The distance between individual points is a reflection of the <em>dissimilarity between response patterns</em> of individuals, and both resulting clouds are on the same distance scale <span class="citation">(Le Roux and Rouanet 2010)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:mcaIdea"></span>
-<img src="figs/MCAplot.png" alt="MCA idea" width="80%" />
+<img src="figs/MCAplot.png" alt="MCA idea" width="82%" />
 <p class="caption">
 Figure 1: MCA idea
 </p>
@@ -981,7 +992,7 @@ Figure 3: Regions
 <p>Le Roux, Brigitte, and Henry Rouanet. 2010. <em>Multiple Correspondence Analysis</em>. Vol. 163. Sage.</p>
 </div>
 <div id="ref-le2008factominer">
-<p>Lê, Sébastien, Julie Josse, and François Husson. 2008. “FactoMineR: An R Package for Multivariate Analysis.” <em>Journal of Statistical Software</em> 25 (1). Los Angeles: 1–18.</p>
+<p>Lê, Sébastien, Julie Josse, and François Husson. 2008. “FactoMineR: An R Package for Multivariate Analysis.” <em>Journal of Statistical Software</em> 25 (1).</p>
 </div>
 <div id="ref-smith2013psychosocial">
 <p>Smith, Jacqui, Gwenith Fisher, Lindsay Ryan, Philippa Clarke, Jim House, and David Weir. 2013. “Psychosocial and Lifestyle Questionnaire.” <em>Survey Research Center, Institute for Social Research</em>.</p>
