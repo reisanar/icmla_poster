@@ -71,7 +71,7 @@ font-size: 45pt;
 
 <style>
 .poster_title h3{
-color: #B1B3B5;
+color: #000000;
 }
 </style>
 
