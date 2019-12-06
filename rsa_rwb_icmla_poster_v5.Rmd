@@ -110,21 +110,21 @@ library(kableExtra)
 
 # Introduction
 
-The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables. A lower dimensional representation of both individuals and measured variables is used to detect and represent underlying structures in the US Health and Retirement Study, a longitudinal survey of a representative sample of Americans over age 50 that captures information on how changing health interacts with social, economic, and psychological factors and retirement decisions.
+The main focus of this work is to show the ability of geometric data analysis techniques in discovering response patterns in survey data where the majority of measurements result in categorical variables. A lower-dimensional representation of both individuals and measured variables is used to detect and represent underlying structures in the US Health and Retirement Study, a longitudinal survey of a representative sample of Americans over age 50 that captures information on how changing health interacts with social, economic, and psychological factors and retirement decisions.
 
  
 # Methods
 
 <!-- The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a _cloud of categories_ and a _cloud of individuals_ (Figure \@ref(fig:mcaIdea)). The distance between individual points is a reflection of the _dissimilarity between response patterns_ of individuals, and both resulting clouds are on the same distance scale. -->
 
-The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a _cloud of categories_ and a _cloud of individuals_ (Figure \@ref(fig:mcaIdea)). The distance between individual points is a reflection of the _dissimilarity between response patterns_ of individuals, and both resulting clouds are on the same distance scale [@le2010multiple].
+The geometric data analysis method of Multiple Correspondence Analysis (MCA) allows the construction of a lower-dimensional space that captures the variance in the original data, and in which both variables and individuals can be projected to explore patterns, validate hypotheses, and better understand the association among the observed data. MCA is an unsupervised learning algorithm under the framework of Geometric Data Analysis (GDA), in which the elements of two sets indexing the entries of the data table become points in a geometric space and define two clouds of points: a _cloud of categories_ and a _cloud of individuals_ (Figure \@ref(fig:mcaIdea)). The distance between individual points is a reflection of the _dissimilarity between response patterns_ of individuals, and both resulting clouds are on the same distance scale [@le2010multiple].
 
 ```{r mcaIdea, out.width='80%', fig.align='center', fig.cap='MCA idea: representation of participants and responses to survey', fig.height=5}
 knitr::include_graphics("figs/MCAplot.png")
 ```
 
 <!-- MCA can be seen as a particular case of weighted principal component analysis, in which a set of multidimensional points exists in a high-dimensional space where distance is measured by a weighted Euclidean metric and the points themselves have differential masses. -->
-The lower dimensional representation is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The solution can be obtained compactly and neatly using the generalized singular value decomposition (SVD) of the data matrix [@greenacre2006multiple].
+The lower-dimensional representation is obtained by determining the closest plane to the points in terms of weighted least-squared distance, and then projecting the points onto the plane for visualization and interpretation. The solution can be obtained compactly and neatly using the generalized singular value decomposition (SVD) of the data matrix [@greenacre2006multiple].
 
 
 
@@ -242,7 +242,7 @@ table5 %>%
 
 ## **Clustering**
 
-Geometric data analysis methods have the potential to be used as a pre-processing step for clustering, given the representation in a lower dimensional space provided by the principal component technique of choice. In this work, a hierarchical clustering algorithm is performed using the coordinates of each respondent in the lower dimensional space generated by the MCA procedure. The findings of this hierarchical clustering confirm a natural grouping for the participants of the survey: the tendency of survey respondents to use the levels of agreement with the different questions that are part of the questionnaire, namely, &quot;a lot&quot;, &quot;not at all&quot;, &quot;some&quot; and &quot;a little&quot;. These levels of agreements are well separated in distinct regions within the plane of the first 2 principal dimensions.
+Geometric data analysis methods have the potential to be used as a pre-processing step for clustering, given the representation in a lower-dimensional space provided by the principal component technique of choice. In this work, a hierarchical clustering algorithm is performed using the coordinates of each respondent in the lower-dimensional space generated by the MCA procedure. The findings of this hierarchical clustering confirm a natural grouping for the participants of the survey: the tendency of survey respondents to use the levels of agreement with the different questions that are part of the questionnaire, namely, &quot;a lot&quot;, &quot;not at all&quot;, &quot;some&quot; and &quot;a little&quot;. These levels of agreements are well separated in distinct regions within the plane of the first 2 principal dimensions.
 
 
 
@@ -260,7 +260,7 @@ knitr::include_graphics(c("figs/screeplot.png",
                           "figs/new_hclust.png"))
 ```
 
-The individuals present in Region 1 have an open personality and actively seek for new experiences, while individuals in Region 3 and 4 do not exhibit this characteristic, holding all the low levels of this perception which is defined by a “Not at all” response in most cases. Similarly, the aspect of conscientiousness is a substantial characteristic for individuals in Region 1, and its weakest trace is found in individuals located in Regions 3 and 4.
+The individuals present in Region 1 have an open personality and actively seek new experiences, while individuals in Region 3 and 4 do not exhibit this characteristic, holding all the low levels of this perception, which is defined by a “Not at all” response in most cases. Similarly, the aspect of conscientiousness is a substantial characteristic for individuals in Region 1, and its weakest trace is found in individuals located in Regions 3 and 4.
 
 ```{r, echo = FALSE}
 png1_dest <- "figs/region_1_plot.png"
@@ -282,7 +282,7 @@ knitr::include_graphics(c(png1_dest,
 
 # Conclusions
 
-The use of unsupervised techniques presented in this work represents an opportunity to extract valuable insights from longitudinal datasets like the one made available by the US Health and Retirement Study. MCA allows for new interpretations and discovery of patterns that take advantage of the qualitative nature of the data collected from survey respondents. The hierarchical clustering technique applied to the low dimensional representation of participants, provided by the MCA method, suggested a reasonable separation of the respondent profile as characterized by a personality scale. Results provided by this approach may be used to explore other areas that have yet to be captured using the items in the questionnaires, helping in the design of the survey and sampling procedure, and allowing for correlation studies with other physical and mental health indicators.
+The use of unsupervised techniques presented in this work represents an opportunity to extract valuable insights from longitudinal datasets like the one made available by the US Health and Retirement Study. MCA allows for new interpretations and discovery of patterns that take advantage of the qualitative nature of the data collected from survey respondents. The hierarchical clustering technique applied to the lower-dimensional representation of participants, provided by the MCA method, suggested a reasonable separation of the respondent profile as characterized by a personality scale. Results provided by this approach may be used to explore other areas that have yet to be captured using the items in the questionnaires, helping in the design of the survey and sampling procedure, and allowing for correlation studies with other physical and mental health indicators.
 
 ### _**Acknowledgements**_
 
